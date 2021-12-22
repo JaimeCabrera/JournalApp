@@ -1,4 +1,9 @@
-html,body{
-  margin: 0;
-  padding: 0;
-}
+@import "./base/settings";
+@import "./base/base";
+
+// components
+@import "./components/auth";
+@import "./components/forms";
+@import "./components/buttons";
+@import "./components/google_btn";
+@import "./components/links";
