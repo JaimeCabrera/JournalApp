@@ -1,0 +1,39 @@
+.sidebar {
+  background-color: $primary-color;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 30rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.sidebar-nav {
+  display: flex;
+  justify-content: space-between;
+  & h3 {
+    font-weight: 400;
+    & svg {
+      margin-right: 1rem;
+    }
+  }
+}
+
+.new-entry {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  width: 100%;
+  transition: all 0.5s ease;
+
+  &:hover {
+    color: $secondary-color;
+  }
+
+  & svg {
+    font-size: 3rem;
+  }
+}
