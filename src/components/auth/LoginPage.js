@@ -1,9 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const LoginPage = () => {
+  const navigate = useNavigate()
   const handleLogin = (e) => {
     e.preventDefault();
+    navigate('/')
     console.log("login");
   };
 
@@ -29,7 +31,7 @@ export const LoginPage = () => {
             autoComplete="off"
           />
         </div>
-        <button type="submit" className="btn__btn btn__btn-primary">
+        <button type="submit" className="btn btn-primary">
           Ingresar
         </button>
         <hr />

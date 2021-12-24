@@ -43,7 +43,7 @@ export const RegisterPage = () => {
             autoComplete="off"
           />
         </div>
-        <button type="submit" className="btn__btn btn__btn-primary">
+        <button type="submit" className="btn btn-primary">
           Register
         </button>
         <hr />

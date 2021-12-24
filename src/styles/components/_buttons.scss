@@ -1,30 +1,35 @@
-.btn__btn {
-  border-radius: 0.5rem;
-  // padding: 1rem;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  cursor: pointer;
-  height: 2.6rem;
+.btn {
+  border-radius: 4px;
   border: 1px solid transparent;
-}
-.btn__btn:hover {
-  border: 1px solid $border-color-grey;
-}
+  cursor: pointer;
+  height: 1.9rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  margin-left: 0.5rem;
+  margin-top: 0.5rem;
+  transition: all 0.4s ease;
 
-.btn__btn-primary {
-  background-color: $primary-color;
-  color: white;
-  font-weight: 400;
-  font-size: 0.9rem;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  transition: ease-in-out 0.2s;
-  &:disabled {
-    background-color: lighten($color: $primary-color, $amount: 10);
+  &:hover {
+    background-color: $secondary-color;
+    color: darken($color: $primary-color, $amount: 20);
   }
 }
 
-.btn__btn-primary:hover {
-  background-color: $secondary-color;
-  border: 1px solid transparent;
-  color: $primary-color;
+.btn-primary {
+  background-color: $primary-color;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 400;
+  transition: ease-in-out 0.2s;
+
+  &:disabled {
+    background-color: lighten($color: $primary-color, $amount: 10);
+  }
+
+  &:hover {
+    background-color: $secondary-color;
+    border: 1px solid transparent;
+    color: $primary-color;
+  }
 }
