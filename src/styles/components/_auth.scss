@@ -49,6 +49,13 @@
   border: 1px solid rgba(167, 93, 93, 0.3);
   padding: 0.5rem;
 }
+
+.login-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 // media querys
 @media screen and(min-width:768px) {
   .auth__box_container {

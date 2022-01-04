@@ -13,3 +13,17 @@ export const removeError = () => {
     payload: null,
   };
 };
+
+// loading
+
+export const startLoading = () => {
+  return {
+    type: types.uiStartLoading,
+  };
+};
+
+export const stopLoading = () => {
+  return {
+    type: types.uiFinishLoading,
+  };
+};

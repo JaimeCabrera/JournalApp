@@ -5,11 +5,12 @@ import { startGoogleLogin, startLoginEmailPassword } from "../../actions/auth";
 import { useForm } from "../../hooks/useForm";
 import validator from "validator";
 import { removeError, setError } from "../../actions/ui";
+import { Spinner } from "../ui/Spinner";
 
 export const LoginPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { msgError } = useSelector((state) => state.ui);
+  const { msgError, loading } = useSelector((state) => state.ui);
 
   const [values, handleInputChange] = useForm({
     email: "admin@admin.com",
@@ -22,7 +23,7 @@ export const LoginPage = () => {
     e.preventDefault();
     if (isFormValid) {
       dispatch(startLoginEmailPassword(email, password));
-      navigate("/");
+      // navigate("/");
     }
   };
 
@@ -30,6 +31,7 @@ export const LoginPage = () => {
     dispatch(startGoogleLogin());
   };
 
+  // validar campos del formulario
   const isFormValid = () => {
     if (!validator.isEmail(email)) {
       dispatch(setError("email is not valid"));
@@ -69,9 +71,16 @@ export const LoginPage = () => {
             onChange={handleInputChange}
           />
         </div>
-        <button type="submit" className="btn btn-primary">
-          Ingresar
-        </button>
+        <div className="login-btn">
+          {!loading ? (
+            <button type="submit" className="btn btn-primary">
+              Ingresar
+            </button>
+          ) : (
+            <Spinner />
+          )}
+        </div>
+
         <hr />
         <div className="auth__social-networks">
           <p>Login with social account</p>

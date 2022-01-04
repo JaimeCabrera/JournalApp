@@ -7,16 +7,20 @@ import {
 } from "firebase/auth";
 import { googleAuthProvider } from "../firebase/firebase-config";
 import { types } from "../types/types";
+import { startLoading, stopLoading } from "./ui";
 
 // funciones asincrona
 export const startLoginEmailPassword = (email, password) => {
   return (dispatch) => {
     const auth = getAuth();
+    dispatch(startLoading());
     signInWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
         dispatch(login(user.uid, user.displayName));
+        dispatch(stopLoading());
       })
       .catch((e) => {
+        dispatch(stopLoading());
         console.log(e);
       });
   };
