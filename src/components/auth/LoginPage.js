@@ -23,7 +23,7 @@ export const LoginPage = () => {
     e.preventDefault();
     if (isFormValid) {
       dispatch(startLoginEmailPassword(email, password));
-      // navigate("/");
+      navigate("/");
     }
   };
 

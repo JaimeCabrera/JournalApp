@@ -55,6 +55,12 @@
   display: flex;
   justify-content: center;
 }
+.loading-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40%;
+}
 
 // media querys
 @media screen and(min-width:768px) {
