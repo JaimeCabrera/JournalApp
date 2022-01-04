@@ -6,6 +6,7 @@ import { getFirestore } from "firebase/firestore";
 import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
 
 // Your web app's Firebase configuration
@@ -26,4 +27,9 @@ const db = getFirestore();
 const googleAuthProvider = new GoogleAuthProvider();
 // const registerUserWithEmailAndPassword = new createUserWithEmailAndPassword();
 
-export { db, googleAuthProvider, createUserWithEmailAndPassword };
+export {
+  db,
+  googleAuthProvider,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+};

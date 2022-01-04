@@ -1,6 +1,7 @@
 import {
   createUserWithEmailAndPassword,
   getAuth,
+  signInWithEmailAndPassword,
   signInWithPopup,
   updateProfile,
 } from "firebase/auth";
@@ -10,9 +11,14 @@ import { types } from "../types/types";
 // funciones asincrona
 export const startLoginEmailPassword = (email, password) => {
   return (dispatch) => {
-    setTimeout(() => {
-      dispatch(login(email, password));
-    }, 3500);
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, password)
+      .then(({ user }) => {
+        dispatch(login(user.uid, user.displayName));
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
 };
 
@@ -21,7 +27,6 @@ export const startRegisterWithEmailPasswordName = (email, password, name) => {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
       .then(async ({ user }) => {
-        console.log(user);
         await updateProfile(user, { displayName: name });
         dispatch(login(user.uid, user.displayName));
       })

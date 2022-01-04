@@ -27,20 +27,17 @@ export const RegisterPage = () => {
 
   const isFormValid = () => {
     if (name.trim().length === 0) {
-      console.log("name is required");
       dispatch(setError("name is required"));
       return false;
     } else if (!validator.isEmail(email)) {
       dispatch(setError("email is not valid"));
 
-      console.log("email is not valid");
       return false;
     } else if (password !== password_confirm || password.length < 5) {
       dispatch(
         setError("password should be al lest characters and match each other")
       );
 
-      console.log("password should be al lest characters and match each other");
       return false;
     }
     dispatch(removeError());
