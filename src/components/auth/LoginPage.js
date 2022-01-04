@@ -1,12 +1,29 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { startGoogleLogin, startLoginEmailPassword } from "../../actions/auth";
+import { useForm } from "../../hooks/useForm";
 
 export const LoginPage = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const [values, handleInputChange] = useForm({
+    email: "admin@admin.com",
+    password: "password",
+  });
+
+  const { email, password } = values;
+
   const handleLogin = (e) => {
     e.preventDefault();
-    navigate('/')
-    console.log("login");
+    dispatch(startLoginEmailPassword(email, password));
+    navigate("/");
+  };
+
+  const handleGoogleLogin = () => {
+    console.log("login con google");
+    dispatch(startGoogleLogin());
   };
 
   return (
@@ -20,6 +37,8 @@ export const LoginPage = () => {
             placeholder="email"
             name="email"
             autoComplete="off"
+            value={email}
+            onChange={handleInputChange}
           />
         </div>
         <div className="form__group">
@@ -29,6 +48,8 @@ export const LoginPage = () => {
             placeholder="password"
             name="password"
             autoComplete="off"
+            value={password}
+            onChange={handleInputChange}
           />
         </div>
         <button type="submit" className="btn btn-primary">
@@ -37,7 +58,7 @@ export const LoginPage = () => {
         <hr />
         <div className="auth__social-networks">
           <p>Login with social account</p>
-          <div className="google-btn">
+          <div className="google-btn" onClick={handleGoogleLogin}>
             <div className="google-icon-wrapper">
               <img
                 className="google-icon"

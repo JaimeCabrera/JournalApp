@@ -40,13 +40,14 @@
   gap: 0.5rem;
 }
 .auth__alert-error {
-  background-color: red;
+  background-color: rgba(209, 101, 101, 0.2);
   border-radius: 5px;
-  color: $white;
+  color: red;
   display: flex;
   justify-content: center;
   margin-bottom: 0.6rem;
-  padding: 0.3rem;
+  border: 1px solid rgba(167, 93, 93, 0.3);
+  padding: 0.5rem;
 }
 // media querys
 @media screen and(min-width:768px) {
