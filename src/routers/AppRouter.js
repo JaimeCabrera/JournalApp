@@ -56,8 +56,3 @@ export const AppRouter = () => {
     </>
   );
 };
-
-{
-  /* <Route path="/login" element={<PublicRoute isAuth={user.auth} element={<LoginPage />} />} />
-        < Route path="/*" element={<PrivateRouter isAuth={user.auth} element={<DashboardRouter />} />} /> */
-}
